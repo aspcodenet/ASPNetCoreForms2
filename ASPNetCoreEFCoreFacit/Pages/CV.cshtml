@@ -1,0 +1,98 @@
+﻿
+
+@page
+@model ASPNetCoreEFCoreFacit.Pages.CVModel
+@{
+}
+<div class="row">
+    <div class="col-lg-12 mb-5">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="h6 text-uppercase mb-0">CV Uppgifter </h3>
+            </div>
+
+            <div class="card-body">
+                <form method="post">
+
+
+
+
+                    <div class="form-group">
+                        <label asp-for="Namn">Namn</label>
+                        <input class="form-control" asp-for="Namn">
+                        <span asp-validation-for="Namn" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Mobil">Mobil</label>
+                        <input class="form-control" asp-for="Mobil">
+                        <span asp-validation-for="Mobil" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Adress">Adress</label>
+                        <input class="form-control" asp-for="Adress">
+                        <span asp-validation-for="Adress" class="field-validation-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Postnr">
+                            Postnr
+                        </label>
+                        <input class="form-control" asp-for="Postnr">
+                        <span asp-validation-for="Postnr" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Postort">
+                            Postort
+                        </label>
+                        <input class="form-control" asp-for="Postort">
+                        <span asp-validation-for="Postort" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Email">Email</label>
+                        <input class="form-control" asp-for="Email">
+                        <span asp-validation-for="Email" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Korkort">Körkort</label>
+                        <input class="form-control" asp-for="Korkort">
+                        <span asp-validation-for="Korkort" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Bil">Bil</label>
+                        <input class="form-control" asp-for="Bil">
+                        <span asp-validation-for="Bil" class="field-validation-error"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        @foreach (var val in Model.Worklocations)
+                        {
+                            <label>@val</label>
+                            <input type="radio" asp-for="SelectedWorklocation" value="@val" />
+                            <br />
+                        }
+                    </div>
+
+                    <div class="form-group">
+                            <label asp-for="SelectedEducationIds">Utbildningar</label>
+                        <select asp-for="SelectedEducationIds" asp-items="@Model.AllEducations" multiple="multiple"></select>
+                    </div>
+
+
+
+
+                    <button type="submit" class="btn btn-primary">Registrera</button>
+                </form>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

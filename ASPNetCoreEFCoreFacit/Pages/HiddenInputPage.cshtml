@@ -1,0 +1,12 @@
+﻿@page
+@model ASPNetCoreEFCoreFacit.Pages.HiddenInputPageModel
+@{
+}
+
+<h1>Nu har sidan laddats @Model.Count gånger</h1>
+<form method="post">
+    <input asp-for="Count" value="@Model.Count"/>
+    <button type="submit">Posta</button>
+</form>
+
+

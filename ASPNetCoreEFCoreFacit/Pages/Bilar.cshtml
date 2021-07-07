@@ -1,0 +1,46 @@
+﻿@page
+@model ASPNetCoreEFCoreFacit.Pages.BilarModel
+@{
+}
+
+
+<div>
+    <form>
+        Sök: <input type="text" name="q" class="form-control" />
+        <input type="submit" value="Sök" />
+    </form>
+
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Reg no</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var bilen in Model.Bilar)
+        {
+        <tr>
+            <td>@bilen.Regno</td>
+            <td>@bilen.Manufacturer</td>
+            <td>@bilen.Model</td>
+            <td>@bilen.Price</td>
+            <td>
+                <a asp-page="Bil" asp-route-id="@bilen.Id" class="btn btn-primary">View</a>
+
+            </td>
+            <td>
+                <a asp-page="BilEdit" asp-route-id="@bilen.Id" class="btn btn-primary">Edit</a>
+
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>

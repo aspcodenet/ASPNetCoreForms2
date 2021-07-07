@@ -1,0 +1,56 @@
+﻿@page
+@model ASPNetCoreEFCoreFacit.Pages.RegisterModel
+@{
+}
+<div class="row">
+    <div class="col-lg-12 mb-5">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="h6 text-uppercase mb-0">Registrera </h3>
+            </div>
+
+            <div class="card-body">
+                <form method="post">
+
+
+                    <div class="form-group">
+                        <label asp-for="Email">Email</label>
+                        <input class="form-control" asp-for="Email">
+                        <span asp-validation-for="Email" class="field-validation-error"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="First">First</label>
+                        <input class="form-control" asp-for="First">
+                        <span asp-validation-for="First" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Last">First</label>
+                        <input class="form-control" asp-for="Last">
+                        <span asp-validation-for="Last" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Password">Password</label>
+                        <input class="form-control" asp-for="Password">
+                        <span asp-validation-for="Password" class="field-validation-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="OkUpdates">Send med important updates</label>
+                        <input class="form-control" asp-for="OkUpdates">
+                        <span asp-validation-for="OkUpdates" class="field-validation-error"></span>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Registrera</button>
+                </form>
+
+            </div>
+
+
+            </div>
+        </div>
+
+</div>
