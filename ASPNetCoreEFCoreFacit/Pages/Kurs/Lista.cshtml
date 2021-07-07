@@ -1,0 +1,46 @@
+﻿@page
+@model ASPNetCoreEFCoreFacit.Pages.Kurs.ListaModel
+@{
+}
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Namn</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>@item.Namn</td>
+            <td>
+                @if (!string.IsNullOrEmpty(item.BildSrc))
+                {
+                    <img src="@item.BildSrc"/>
+                }
+                else
+        {
+                    //Bild saknas
+        }
+            </td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+
+            </td>
+
+        </tr>
+    }
+    </tbody>
+    <tfooter>
+        <tr>
+            <td colspan="2">
+                <a asp-page="New" class="btn btn-primary">Skapa ny</a>
+            </td>
+        </tr>
+    </tfooter>
+</table>

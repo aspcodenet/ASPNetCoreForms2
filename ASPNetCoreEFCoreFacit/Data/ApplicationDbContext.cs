@@ -17,5 +17,6 @@ namespace ASPNetCoreEFCoreFacit.Data
         public DbSet<Country> Countries { get; set; }
         public DbSet<CV> CVs { get; set; }
         public DbSet<Utbildning> Utbildningar { get; set; }
+        public DbSet<Kurs> Kurser { get; set; }
     }
 }

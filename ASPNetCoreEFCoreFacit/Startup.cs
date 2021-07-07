@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASPNetCoreEFCoreFacit.Data;
+using ASPNetCoreEFCoreFacit.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASPNetCoreEFCoreFacit
@@ -28,6 +29,7 @@ namespace ASPNetCoreEFCoreFacit
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddTransient<IImageProvider, ImageFileProvider>();
 
             services.AddRazorPages();
         }

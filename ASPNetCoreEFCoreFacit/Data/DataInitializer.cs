@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASPNetCoreEFCoreFacit.Data
@@ -9,6 +10,7 @@ namespace ASPNetCoreEFCoreFacit.Data
         {
             dbContext.Database.Migrate();
 
+            SeedKurser(dbContext);
             SeedCountries(dbContext);
             SeedUtbildningar(dbContext);
 
@@ -16,6 +18,20 @@ namespace ASPNetCoreEFCoreFacit.Data
             SeedBilar(dbContext);
             SeedLastbilar(dbContext);
             FixManufacturersForBilAndLastbil(dbContext);
+        }
+
+        private static void SeedKurser(ApplicationDbContext dbContext)
+        {
+            if (!dbContext.Kurser.Any(r => r.Namn == "C#"))
+                dbContext.Kurser.Add(new Kurs
+                {
+                    Namn = "C#", Beskrivning = "12",
+                    Created = DateTime.UtcNow,
+                    DayOfWeek = DayOfWeek.Monday,
+                    LastModified = DateTime.UtcNow,
+                    StartDay = DateTime.UtcNow.AddDays(40)
+                });
+            dbContext.SaveChanges();
         }
 
         private static void SeedUtbildningar(ApplicationDbContext dbContext)
